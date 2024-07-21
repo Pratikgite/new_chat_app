@@ -22,10 +22,15 @@ const Users = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
+    },
+    isActive: {
+        type: Number,
+        required: true,
+        default: 1 // 1 is for active
     }
 }, {
     timestamps: true,
     versionKey: false
 });
 
-module.exports = Users;
+module.exports = mongoose.model('users', Users);

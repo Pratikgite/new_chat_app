@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-require('./schema_register');
+require('../services/schema_register');
 
 const fetchData = async(query_params) => {
     const { modelName, select = {}, where = {}, sort = {}, limit = 0, skip = 0 } = query_params;
@@ -15,7 +15,7 @@ const fetchDataById = async(query_params) => {
     return await groupModel.findOne(where, select).sort(sort).limit(limit).skip(skip);
 };
 
-const countData = async (query_params)=>{
+const countData = async (query_params) => {
     const { modelName, condition= {} } = query_params;
 
     const groupModel = mongoose.model(modelName);

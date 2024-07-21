@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
+const bodyParser = require("body-parser");
 const dbConfig = require("./database/dbConfig");
+require("dotenv").config();
 
 const endpoints = require("./routes");
-
 dbConfig();
 
+app.use(bodyParser.json());
 endpoints(app);
 
 app.use('/', (req, res) => {
