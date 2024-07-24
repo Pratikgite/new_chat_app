@@ -8,7 +8,7 @@ const fetchData = async(query_params) => {
     return await groupModel.find(where, select).sort(sort).limit(limit).skip(skip);
 };
 
-const fetchDataById = async(query_params) => {
+const fetchSingleData = async(query_params) => {
     const { modelName, select = {}, where = {}, sort = {}, limit = 0, skip = 0 } = query_params;
 
     const groupModel = mongoose.model(modelName);
@@ -74,5 +74,5 @@ const deleteData = async(query_params) => {
 };
 
 module.exports = {
-    fetchData, fetchDataById, countData, storeData, updateData, deleteData
+    fetchData, fetchSingleData, countData, storeData, updateData, deleteData
 };

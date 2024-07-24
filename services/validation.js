@@ -6,9 +6,16 @@ exports.UserRegister = () => {
         body("email", "email is required").not().isEmpty(),
         body("mobile", "mobile is required").not().isEmpty(),
         body("dob", "dob is required").not().isEmpty(),
+        body("password", "password is required").not().isEmpty(),
     ];
 };
 
+exports.UserLogin = () => {
+    return [
+        body("email", "email is required").not().isEmpty(),
+        body("password", "password is required").not().isEmpty(),
+    ];
+};
 
 // validate function
 exports.validate = (req, res, next) => {
